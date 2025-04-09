@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>Todo</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="/">
+                <h1 class="logo">Todo List</h1>
+            </a>
+            <div class="toolbar">
+                <div class="user-section">
+                    <button id="user" class="minimal" onclick='openForm("userForm")'>Hello, Thang!</button>
+                    <div id="userForm" class="form">
+                        <div class="col-4">
+                            <button id="btnUpdateEmail" class="minimal">Update email</button>
+                            <button id="btnChangePassword" class="minimal">Change password</button>
+                            <hr>
+                            <button id="btnLogOut" class="minimal">Logout</button>
+                        </div>
+                    </div>
+                </div>
+                <button id="btnSignUp" class="minimal">Sign up</button>
+                <button id="btnLogin" class="primary">Login</button>
+                <form id="loginForm" class="form login-form">
+                    <span>Login to your account</span>
+                    <input id="email" type="text" placeholder="Enter your email...">
+                    <input id="password" type="text" placeholder="Enter password...">
+                    <div class="row-8">
+                        <button id="btnCancelLoginForm" class="secondary" type="button" onclick='closeForm("loginForm")'>Cancel</button>
+                        <button id="btnSubmitLoginForm" class="primary" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <h1>Footer</h1>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: monospace;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    max-width: 785px;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+/* Layouts */
+.row-8 {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Header */
+header .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    flex: 1;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+}
+
+/* Toolbar */
+.toolbar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+/* Login form */
+.form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 300px;
+    border-radius: 14px;
+    border: 2px solid rgb(226, 226, 226);
+    padding: 16px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    top: 0;
+    margin-top: 8px;
+    right: 0;
+}
+
+.login-form span {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.login-form #btnSubmitLoginForm {
+    width: 100%;
+}
+
+.form.open {
+    visibility: visible;
+    opacity: 1;
+    top: 100%;
+}
+
+/* Button */
+button {
+    background: transparent;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+    transition: all .1s ease-in-out;
+    font-size: 14px;
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+button.primary {
+    background: rgb(36, 130, 252);
+    color: white;
+}
+
+button.primary:hover {
+    background: rgb(32, 109, 209);
+}
+
+button.secondary {
+    background: rgb(230, 230, 230);
+    color: black;
+}
+
+button.secondary:hover {
+    background: rgb(210, 210, 210);
+}
+
+button.minimal {
+    background: transparent;
+    color: black;
+}
+
+button.minimal:hover {
+    background: rgb(226, 226, 226);
+}
+
+/* Input */
+input {
+    background: none;
+    border: none;
+    padding: 6px 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    background: rgb(226, 226, 226);
+    border-radius: 8px;
+}
+
+input:focus {
+    outline-offset: 2px;
+    outline: 2px solid rgb(36, 130, 252);
+}
+
+.col-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
