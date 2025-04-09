@@ -42,6 +42,7 @@ async function isAuthorized() {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function (e) {
     // customFetch.get("users?email=a&&password=a").then(data => console.log(data));
 });

@@ -46,18 +46,6 @@ loginForm.addEventListener('submit', async (e) => {
     }
 });
 
-document.addEventListener('click', () => { });
-
-function closeForm(elementId) {
-    document.getElementById(elementId).classList.remove('open');
-}
-
-function openForm(elementId) {
-    if (elementId.cal) {
-        return document.getElementById(elementId).classList.toggle('open');
-    }
-    closeForm(elementId);
-}
 
 // Listen event
 function inputOnChange(inputElement, placeholder) {
@@ -87,6 +75,11 @@ function inputOnChange(inputElement, placeholder) {
     return isEmpty;
 }
 
+// document.addEventListener("click", function (event) {
+//     if (accountModal && accountModal.classList.contains("open") && !accountModal.contains(event.target)) {
+//         accountModal.classList.remove("open");
+//     }
+// });
 
 // Modal
 function closeModal() {
@@ -97,7 +90,7 @@ function userMapping() { }
 
 document.addEventListener('DOMContentLoaded', function (e) {
 
-    if (isAuthorized()) {
+    if (!isAuthorized()) {
         originTool.style.display = "flex";
     } else {
         accountTool.style.display = "flex";
