@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
-    <title>Todo</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/api.js" defer></script>
+    <script src="./assets/js/utils.js" defer></script>
+    <script src="./assets/js/script.js" defer></script>
+    <title>SamTodo</title>
 </head>
 
 <body>
@@ -16,34 +18,57 @@
                 <h1 class="logo">Todo List</h1>
             </a>
             <div class="toolbar">
-                <div class="user-section">
-                    <button id="user" class="minimal" onclick='openForm("userForm")'>Hello, Thang!</button>
-                    <div id="userForm" class="form">
-                        <div class="col-4">
-                            <button id="btnUpdateEmail" class="minimal">Update email</button>
-                            <button id="btnChangePassword" class="minimal">Change password</button>
+                <div class="account-tool">
+                    <button class="btn-account secondary" onclick='openForm("userForm")'>Hello, Thang!</button>
+                    <div class="modal account-modal">
+                        <div class="account-tool-items col-4">
+                            <button class="btn-update-email minimal">Update email</button>
+                            <button class="btn-change-password minimal">Change password</button>
                             <hr>
-                            <button id="btnLogOut" class="minimal">Logout</button>
+                            <button class="btn-log-out minimal" style="color: var(--danger-color)">Log out</button>
                         </div>
                     </div>
                 </div>
-                <button id="btnSignUp" class="minimal">Sign up</button>
-                <button id="btnLogin" class="primary">Login</button>
-                <form id="loginForm" class="form login-form">
-                    <span>Login to your account</span>
-                    <input id="email" type="text" placeholder="Enter your email...">
-                    <input id="password" type="text" placeholder="Enter password...">
-                    <div class="row-8">
-                        <button id="btnCancelLoginForm" class="secondary" type="button" onclick='closeForm("loginForm")'>Cancel</button>
-                        <button id="btnSubmitLoginForm" class="primary" type="submit">Login</button>
+                <div class="origin-tool">
+                    <div class="group">
+                        <button class="minimal btn-sign up">Sign up</button>
+                        <form class="modal sign-up-form">
+                            <span>Login to your account</span>
+                            <input class="email" type="email" placeholder="Enter your email...">
+                            <input class="password" type="password" placeholder="Enter password...">
+                            <input class="full-name" type="text" placeholder="Enter your full name...">
+                            <div class="modal-action">
+                                <button class="btn-cancel-form" class="secondary" type="button"
+                                    onclick='closeForm("loginForm")'>
+                                    Cancel
+                                </button>
+                                <button class="primary" type="submit">Login</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                    <div class="group">
+                        <button class="primary btn-login">Login</button>
+                        <form class="modal login-form">
+                            <span>Login to your account</span>
+                            <input class="email" type="text" placeholder="Enter your email...">
+                            <input class="password" type="text" placeholder="Enter password...">
+                            <hr>
+                            <div class="modal-action row-8">
+                                <button class="btn-cancel-modal secondary" type="button"
+                                    onclick='closeForm("loginForm")'>Cancel</button>
+                                <button class="primary btn-submit" type="submit">Login</button>
+                            </div>
+                            <button class="minimal" style="color: var(--primary-color)">Forgot password</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
     <main>
         <div class="container">
-            
+
         </div>
     </main>
     <footer>

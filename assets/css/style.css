@@ -1,159 +1,210 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    font-family: monospace;
+  font-family: monospace, sans-serif;
+
+  --primary-color: rgb(36, 130, 252);
+  --secondary-color: rgb(235, 235, 235);
+  --danger-color: #ff3e3e;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
-    text-decoration: none;
-    color: black;
-}
-
-.container {
-    max-width: 785px;
-    margin: 0 auto;
-    padding: 8px;
-}
-
-/* Layouts */
-.row-8 {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: center;
-}
-
-/* Header */
-header .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-main {
-    flex: 1;
-}
-
-/* Logo */
-.logo {
-    font-size: 24px;
-}
-
-/* Toolbar */
-.toolbar {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-}
-
-/* Login form */
-.form {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 300px;
-    border-radius: 14px;
-    border: 2px solid rgb(226, 226, 226);
-    padding: 16px;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .3s ease-in-out;
-    top: 0;
-    margin-top: 8px;
-    right: 0;
-}
-
-.login-form span {
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.login-form #btnSubmitLoginForm {
-    width: 100%;
-}
-
-.form.open {
-    visibility: visible;
-    opacity: 1;
-    top: 100%;
+  text-decoration: none;
+  color: black;
 }
 
 /* Button */
 button {
-    background: transparent;
-    padding: 6px 8px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    font-family: inherit;
-    transition: all .1s ease-in-out;
-    font-size: 14px;
+  background: transparent;
+  padding: 8px 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: inherit;
+  transition: all 0.1s ease-in-out;
+  font-size: 14px;
 }
 
-button:active {
-    transform: scale(.95);
+button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 button.primary {
-    background: rgb(36, 130, 252);
-    color: white;
+  background: var(--primary-color);
+  color: white;
 }
 
 button.primary:hover {
-    background: rgb(32, 109, 209);
+  filter: brightness(85%);
 }
 
 button.secondary {
-    background: rgb(230, 230, 230);
-    color: black;
+  background: var(--secondary-color);
+  color: black;
 }
 
 button.secondary:hover {
-    background: rgb(210, 210, 210);
+  filter: brightness(85%);
+}
+
+button.danger {
+  background: var(--danger-color);
+  color: white;
+}
+
+button.danger:hover {
+  filter: brightness(85%);
 }
 
 button.minimal {
-    background: transparent;
-    color: black;
+  background: transparent;
+  color: black;
 }
 
 button.minimal:hover {
-    background: rgb(226, 226, 226);
+  background: rgb(226, 226, 226);
 }
 
 /* Input */
 input {
-    background: none;
-    border: none;
-    padding: 6px 8px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 700;
-    background: rgb(226, 226, 226);
-    border-radius: 8px;
+  background: none;
+  border: none;
+  padding: 6px 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--secondary-color);
+  border-radius: 8px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: all 0.2s ease-in-out;
 }
 
 input:focus {
-    outline-offset: 2px;
-    outline: 2px solid rgb(36, 130, 252);
+  outline-color: var(--primary-color);
+}
+
+input.danger {
+  outline-color: var(--danger-color);
+}
+
+/* Hr */
+hr {
+  border: 1.5px solid var(--secondary-color);
+}
+
+/* Layouts */
+.container {
+  max-width: 785px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.row-8 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .col-4 {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Header */
+header .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  flex: 1;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+}
+
+/* Toolbar */
+.toolbar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.user-tool,
+.origin-tool {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+/* Modal */
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 300px;
+  border-radius: 14px;
+  border: 2px solid var(--secondary-color);
+  padding: 16px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  top: 100%;
+  margin-top: 8px;
+  right: 0;
+  scale: 0.5;
+}
+
+.modal.open {
+  visibility: visible;
+  opacity: 1;
+  scale: 1;
+}
+
+.modal-action {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-action button:last-child {
+  width: 100%;
+}
+
+/* Login form */
+.login-form span {
+  font-weight: 700;
+  font-size: 16px;
+  padding-bottom: 8px;
+}
+
+/* Others */
+.account-tool,
+.origin-tool {
+  display: none;
 }

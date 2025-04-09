@@ -1,42 +1,49 @@
-const btnLogin = document.getElementById("btnLogin");
-const btnSubmitLoginForm = document.getElementById("btnSubmitLoginForm");
+const btnLogin = document.querySelector(".btn-login");
+const loginForm = document.querySelector(".login-form");
+const loginEmail = loginForm.querySelector(".email");
+const loginPassword = loginForm.querySelector(".password");
 
-const loginForm = document.querySelector('.login-form');
+const btnSignUp = document.querySelector(".btn-sign-up");
+const signUpForm = document.querySelector(".sign-up-form");
+const signUpEmail = signUpForm.querySelector(".email");
+const signUpPassword = signUpForm.querySelector(".password");
+const signUpFullName = signUpForm.querySelector(".full-name");
 
-const form = document.querySelector('.form');
+const originTool = document.querySelector('.origin-tool');
 
-const emailEle = document.getElementById('email');
-const passwordEle = document.getElementById('password');
+const accountTool = document.querySelector('.account-tool')
+const btnAccount = document.querySelector('.btn-account');
+const accountModal = document.querySelector('.account-modal');
 
-const userSection = document.getElementById('userSection');
-
+// Open login form
 btnLogin.addEventListener('click', () => {
     loginForm.classList.toggle('open');
 });
 
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const email = emailEle.value;
-    const password = passwordEle.value;
-
-    if (login(email, password)) {
-        alert("Login Successful.");
-        loginForm.classList.remove('open');
-    }
+// Open account modal
+btnAccount.addEventListener('click', () => {
+    accountModal.classList.toggle('open');
 });
 
-const login = (email, password) => {
-    if (email === 'thang' && password === '123') {
-        storageManagement.setItem('loggedIn', true);
-        return true;
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    let hasError = false;
+
+    hasError = inputOnChange(loginEmail, "Enter your email...");
+    hasError = inputOnChange(loginPassword, "Enter password...");
+
+    if (hasError) return;
+
+    const email = loginEmail.value.trim();
+    const password = loginPassword.value.trim();
+
+    console.log(login(email, password))
+    if (login(email, password)) {
+        loginForm.classList.remove('open');
     } else {
-        return false;
+        alert("Login failed.");
     }
-}
-
-btnSubmitLoginForm.addEventListener('click', () => {
-
 });
 
 document.addEventListener('click', () => { });
@@ -52,13 +59,47 @@ function openForm(elementId) {
     closeForm(elementId);
 }
 
-const storageManagement = {
-    setItem: (key, value) => {
-        localStorage.setItem(key, value);
-    },
+// Listen event
+function inputOnChange(inputElement, placeholder) {
+    let isEmpty;
 
-    getItem: (key) => {
-        localStorage.getItem(key);
+    if (inputElement.value === "") {
+        inputElement.placeholder = 'This field is required';
+        inputElement.classList.add("danger");
+
+        isEmpty = true;
     }
+
+    inputElement.addEventListener('input', function (e) {
+        if (e.target.value === "") {
+            inputElement.placeholder = 'This field is required';
+            inputElement.classList.add("danger");
+
+            isEmpty = true;
+        } else {
+            inputElement.placeholder = placeholder;
+            inputElement.classList.remove("danger");
+
+            isEmpty = false;
+        }
+    });
+
+    return isEmpty;
 }
 
+
+// Modal
+function closeModal() {
+
+}
+
+function userMapping() { }
+
+document.addEventListener('DOMContentLoaded', function (e) {
+
+    if (isAuthorized()) {
+        originTool.style.display = "flex";
+    } else {
+        accountTool.style.display = "flex";
+    }
+});
