@@ -1,13 +1,3 @@
-const localStorageManagement = {
-    setItem (key, value) {
-        return localStorage.setItem(key, value);
-    },
-
-    getItem (key) {
-        return localStorage.getItem(key);
-    }
-}
-
 const customFetch = {
     baseURL: "https://67f69f3842d6c71cca62c348.mockapi.io",
 
@@ -65,3 +55,49 @@ const customFetch = {
         }
     },
 };
+
+function inputOnChange(inputElement, placeholder) {
+    let isEmpty;
+
+    if (inputElement.value === "") {
+        inputElement.placeholder = 'This field is required';
+        inputElement.classList.add("danger");
+
+        isEmpty = true;
+    }
+
+    inputElement.addEventListener('input', function (e) {
+        if (e.target.value === "") {
+            inputElement.placeholder = 'This field is required';
+            inputElement.classList.add("danger");
+
+            isEmpty = true;
+        } else {
+            inputElement.placeholder = placeholder;
+            inputElement.classList.remove("danger");
+
+            isEmpty = false;
+        }
+    });
+
+    return isEmpty;
+}
+
+function openModal(modalSelector) {
+    document.querySelectorAll(".modal").forEach(modal => modal.classList.remove("open"));
+    document.querySelector(modalSelector).classList.add("open");
+}
+
+function generateUID() {
+    return crypto.randomUUID();
+}
+
+const elementManager = {
+    addClass(selector, className) {
+        document.querySelector(selector).add(className);
+    },
+
+    removeClass(selector, className) {
+        document.querySelector(selector).remove(className);
+    }
+}

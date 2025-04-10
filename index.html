@@ -7,59 +7,117 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/api.js" defer></script>
     <script src="./assets/js/utils.js" defer></script>
-    <script src="./assets/js/script.js" defer></script>
-    <title>SamTodo</title>
+    <script src="./assets/js/app.js" defer></script>
+    <title>Todo-List</title>
 </head>
 
 <body>
     <header>
         <div class="container">
             <a href="/">
-                <h1 class="logo">Todo List</h1>
+                <h1 class="logo">Todo-List</h1>
             </a>
             <div class="toolbar">
-                <div class="account-tool">
-                    <button class="btn-account secondary">Hello, Thang!</button>
-                    <div class="modal account-modal">
-                        <div class="account-tool-items col-4">
-                            <button class="btn-update-email minimal">Update email</button>
-                            <button class="btn-change-password minimal">Change password</button>
-                            <hr>
-                            <button class="btn-log-out minimal" style="color: var(--danger-color)">Log out</button>
+                <div class="account-tool row-8">
+                    <div class="group">
+                        <button class="btn-account icon"><img src="./assets/icons/user.svg" alt="Account"></button>
+                        <div class="modal account-modal">
+                            <button class="btn-close-modal secondary">Close</button>
+                            <div class="modal-content account-menu menu">
+                                <span class="menu-title">Hi, @username</span>
+                                <hr>
+                                <div class="main-menu">
+                                    <button class="minimal btn-update-email">Update email address</button>
+                                    <button class="minimal btn-change-password">Change password</button>
+                                    <button class="minimal btn-log-out">Log out</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="origin-tool">
                     <div class="group">
-                        <button class="minimal btn-sign up">Sign up</button>
-                        <form class="modal sign-up-form">
-                            <span>Login to your account</span>
-                            <input class="email" type="email" placeholder="Enter your email...">
-                            <input class="password" type="password" placeholder="Enter password...">
-                            <input class="full-name" type="text" placeholder="Enter your full name...">
-                            <div class="modal-action">
-                                <button class="btn-cancel-form" class="secondary" type="button"
-                                    onclick='closeForm("loginForm")'>
-                                    Cancel
-                                </button>
-                                <button class="primary" type="submit">Login</button>
-                            </div>
-                        </form>
+                        <button class="minimal btn-sign-up">Sign up</button>
+                        <div class="modal sign-up-modal">
+                            <button class="btn-close-modal secondary">
+                                Close
+                            </button>
+                            <form class="modal-content sign-up-form form">
+                                <span class="form-title">Join Todo-List</span>
+                                <div class="main-form">
+                                    <input class="email" type="text" placeholder="Enter your email...">
+                                    <input class="password" type="password" placeholder="Enter password...">
+                                    <input class="full-name" type="text" placeholder="Enter password...">
+                                    <div class="message">Wrong!</div>
+                                </div>
+                                <hr>
+                                <div class="form-action row-8">
+                                    <button class="primary btn-submit" type="submit">Create</button>
+                                </div>
+                                <div class="form-other">
+                                    <button class="underline btn-forgot" type="button"
+                                        style="color: var(--primary-color)">
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                     <div class="group">
                         <button class="primary btn-login">Login</button>
-                        <form class="modal login-form">
-                            <span>Login to your account</span>
-                            <input class="email" type="text" placeholder="Enter your email...">
-                            <input class="password" type="text" placeholder="Enter password...">
-                            <hr>
-                            <div class="modal-action row-8">
-                                <button class="btn-cancel-modal secondary" type="button"
-                                    onclick='closeForm("loginForm")'>Cancel</button>
-                                <button class="primary btn-submit" type="submit">Login</button>
-                            </div>
-                            <button class="minimal" style="color: var(--primary-color)">Forgot password</button>
-                        </form>
+                        <div class="modal login-modal">
+                            <button class="btn-close-modal secondary">
+                                Close
+                            </button>
+                            <form class="modal-content login-form">
+                                <span class="form-title">Login to your account</span>
+                                <div class="main-form">
+                                    <input class="email" type="text" placeholder="Enter your email...">
+                                    <input class="password" type="password" placeholder="Enter password...">
+                                    <div class="message">Wrong!</div>
+                                </div>
+                                <hr>
+                                <div class="form-action row-8">
+                                    <button class="primary btn-submit" type="submit">Login</button>
+                                </div>
+                                <div class="form-other">
+                                    <button class="underline btn-forgot" type="button"
+                                        style="color: var(--primary-color)">
+                                        Forgot password
+                                    </button>
+                                    <button class="underline btn-forgot" type="button"
+                                        style="color: var(--primary-color)">
+                                        Sign up
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal forgot-modal">
+                            <button class="btn-close-modal secondary">
+                                Close
+                            </button>
+                            <form class="modal-content forgot-form form">
+                                <span class="form-title">Receive your password back</span>
+                                <div class="main-form">
+                                    <input class="email" type="text" placeholder="Enter your email...">
+                                    <div class="message">Wrong!</div>
+                                </div>
+                                <hr>
+                                <div class="form-action row-8">
+                                    <button class="primary btn-submit" type="submit">Get password</button>
+                                </div>
+                                <div class="form-other">
+                                    <button class="underline btn-forgot" type="button"
+                                        style="color: var(--primary-color)">
+                                        Login
+                                    </button>
+                                    <button class="underline btn-forgot" type="button"
+                                        style="color: var(--primary-color)">
+                                        Sign up
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -68,14 +126,17 @@
     </header>
     <main>
         <div class="container">
-
+            <button class="btn-add-task primary"><img src="/assets/icons/plus.svg" alt="Add"></button>
+            <div class="task">
+                <div class="row-8">
+                    <div class="checkbox-wrapper-11">
+                        <input id="02-11" type="checkbox" name="r" value="2">
+                        <label for="02-11">This is a first task. lo</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-    <footer>
-        <div class="container">
-            <h1>Footer</h1>
-        </div>
-    </footer>
 </body>
 
 </html>
