@@ -8,15 +8,35 @@
     <script src="./assets/js/api.js" defer></script>
     <script src="./assets/js/utils.js" defer></script>
     <script src="./assets/js/app.js" defer></script>
-    <title>Todo-List</title>
+    <title>TO-DOIT</title>
 </head>
 
 <body>
     <header>
         <div class="container">
-            <a href="/">
-                <h1 class="logo">Todo-List</h1>
-            </a>
+            <div class="group">
+                <button class="btn-new-task icon"><img src="./assets/icons/plus.svg" alt="Account">Add task</button>
+                <div class="modal add-task-modal">
+                    <button class="btn-close-modal secondary">
+                        <img src="./assets/icons/x.svg" alt="Close">
+                        Close
+                    </button>
+                    <form class="modal-content add-task-form form">
+                        <span class="form-title">Add new task</span>
+                        <div class="main-form">
+                            <input class="task-name" type="text" placeholder="Enter task name ...">
+                            <input class="task-detail" type="text" placeholder="Enter task detail ...">
+                            <input class="start" type="date" placeholder="Enter task detail ...">
+                            <input class="end" type="date" placeholder="Enter task detail ...">
+                            <div class="message">Wrong!</div>
+                        </div>
+                        <hr>
+                        <div class="form-action">
+                            <button class="primary btn-submit" type="submit">Add now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="toolbar">
                 <div class="account-tool row-8">
                     <div class="group">
@@ -40,10 +60,10 @@
                         <button class="minimal btn-sign-up">Sign up</button>
                         <div class="modal sign-up-modal">
                             <button class="btn-close-modal secondary">
-                                Close
+                                <img src="./assets/icons/x.svg" alt="Close">
                             </button>
                             <form class="modal-content sign-up-form form">
-                                <span class="form-title">Join Todo-List</span>
+                                <span class="form-title">Join TO-DOIT</span>
                                 <div class="main-form">
                                     <input class="email" type="text" placeholder="Enter your email...">
                                     <input class="password" type="password" placeholder="Enter password...">
@@ -120,18 +140,52 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
     <main>
         <div class="container">
-            <button class="btn-add-task primary"><img src="/assets/icons/plus.svg" alt="Add"></button>
-            <div class="task">
-                <div class="row-8">
-                    <div class="checkbox-wrapper-11">
-                        <input id="02-11" type="checkbox" name="r" value="2">
-                        <label for="02-11">This is a first task. lo</label>
+            <div class="task-container">
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" id="1" class="custom-checkbox">
+                        <label for="1" class="custom-label">Chọn tùy chọn này Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Commodi iusto distinctio, odio quam tenetur eum quas.
+                            Consequuntur doloremque dolorem ratione velit sed, molestiae necessitatibus est dolore id
+                            possimus sapiente libero.
+                        </label>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" id="2" class="custom-checkbox">
+                        <label for="2" class="custom-label">Chọn tùy chọn này Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Commodi iusto distinctio, odio quam tenetur eum quas.
+                            Consequuntur doloremque dolorem ratione velit sed, molestiae necessitatibus est dolore id
+                            possimus sapiente libero.
+                        </label>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" id="3" class="custom-checkbox">
+                        <label for="3" class="custom-label">Chọn tùy chọn này Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Commodi iusto distinctio, odio quam tenetur eum quas.
+                            Consequuntur doloremque dolorem ratione velit sed, molestiae necessitatibus est dolore id
+                            possimus sapiente libero.
+                        </label>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" id="4" class="custom-checkbox">
+                        <label for="4" class="custom-label">Chọn tùy chọn này Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Commodi iusto distinctio, odio quam tenetur eum quas.
+                            Consequuntur doloremque dolorem ratione velit sed, molestiae necessitatibus est dolore id
+                            possimus sapiente libero.
+                        </label>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" id="5" class="custom-checkbox">
+                        <label for="5" class="custom-label">Chọn tùy chọn này Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Commodi iusto distinctio, odio quam tenetur eum quas.
+                            Consequuntur doloremque dolorem ratione velit sed, molestiae necessitatibus est dolore id
+                            possimus sapiente libero.
+                        </label>
                     </div>
                 </div>
             </div>

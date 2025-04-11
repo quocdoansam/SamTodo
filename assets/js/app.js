@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', async function (e) {
     const signUpEmail = signUpForm.querySelector(".email");
     const signUpPassword = signUpForm.querySelector(".password");
     const signUpFullName = signUpForm.querySelector(".full-name");
+    const messageSignUp = signUpForm.querySelector('.message');
+    const btnSignUpSibmit = signUpForm.querySelector('.btn-submit');
 
     const originTool = document.querySelector('.origin-tool');
 
@@ -20,6 +22,8 @@ document.addEventListener('DOMContentLoaded', async function (e) {
     const accountModal = document.querySelector('.account-modal');
     const accountMenu = accountModal.querySelector('.account-menu');
     const menuTitle = accountMenu.querySelector(".menu-title");
+
+    const btnAddTask = document.querySelector('.btn-new-task');
 
     // Open login modal
     btnLogin.addEventListener('click', () => openModal('.login-modal'));
@@ -33,6 +37,8 @@ document.addEventListener('DOMContentLoaded', async function (e) {
     // Open account modal
     btnAccount.addEventListener('click', () => openModal('.account-modal'));
 
+    // Open add task modal
+    btnAddTask.addEventListener('click', () => openModal('.add-task-modal'));
     accountModal.addEventListener('click', async (e) => {
         if (e.target.classList.contains('btn-log-out')) {
             logout();
@@ -67,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async function (e) {
             await afterLogin();
         } else {
             btnLoginSubmit.classList.remove('loading');
-            messageLogin.textContent = "Wrong email or password. Try again.";
+            messageLogin.textContent = "Wrong email or password.";
             messageLogin.classList.add('open');
         }
     });
@@ -83,14 +89,27 @@ document.addEventListener('DOMContentLoaded', async function (e) {
 
         if (hasError) return;
 
+        btnSignUpSibmit.classList.add('loading');
+
         const email = signUpEmail.value.trim();
         const password = signUpPassword.value.trim();
         const fullName = signUpFullName.value.trim();
 
         if (await signUp(email, password, fullName)) {
-            alert("created account successful.")
+            btnSignUpSibmit.classList.remove('loading');
+
+            messageSignUp.textContent = "Create account successful."
+            messageSignUp.classList.add('success');
+
+            setTimeout(() => {
+                messageSignUp.classList.remove('success');
+            }, 15000)
         } else {
-            alert("Create account failed.");
+            messageSignUp.textContent = "Create account failed."
+            messageSignUp.classList.add('danger');
+            setTimeout(() => {
+                messageSignUp.classList.remove('danger');
+            }, 15000)
         }
     });
 
